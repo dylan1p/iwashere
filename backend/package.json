@@ -1,0 +1,27 @@
+{
+	"name": "iwashere",
+	"version": "1.0.0",
+	"description": "iwashere backend",
+    "scripts": {
+		"dev": "nodemon src/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://dylan93@bitbucket.org/dylan93/iwashere.git"
+	},
+	"author": "Dylan Clarke",
+	"license": "NONE",
+	"homepage": "https://bitbucket.org/dylan93/iwashere#readme",
+	"dependencies": {
+		"graphql": "^0.11.7",
+		"graphql-server-koa": "^1.2.0",
+		"graphql-tools": "^2.6.1",
+		"koa": "^2.3.0",
+		"koa-bodyparser": "^4.2.0",
+		"koa-router": "^7.2.1",
+		"winston": "^2.4.0"
+	},
+	"devDependencies": {
+		"nodemon": "^1.12.1"
+	}
+}
