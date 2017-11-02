@@ -8,11 +8,10 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - postgres
-    environment:
-      DATABASE_URL: postgres://iwashere@postgres/iwashere
-  postgres:
-    image: postgres:10
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_DB: password
+      - rethink
+  rethink:
+    image: rethinkdb
+    ports:
+      - "38080:8080"
+      - "38015:28015"
+      - "39015:29015"

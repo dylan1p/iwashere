@@ -1,4 +1,5 @@
 const fs = require("fs");
+const resolvers = require('./resolvers');
 const { makeExecutableSchema } = require("graphql-tools");
 const { graphqlKoa, graphiqlKoa } = require("graphql-server-koa");
 
@@ -9,23 +10,16 @@ try {
 	throw new Error(`Could not find the api.graphql file. Reason : ${err}`);
 }
 
-const resolvers = {
-	Query : {
-		me : function () {
-			return {
-				id : 1,
-				name : "me"
-			}
-		}
-	}
-}
-
 const schema = makeExecutableSchema({
 	typeDefs,
 	resolvers
 })
 
-exports.graphqlAPI = graphqlKoa({ schema });
+exports.graphqlAPI = graphqlKoa(ctx => ({
+	schema,
+	context : {
+		db: ctx.db
+	}
+}));
 
 exports.graphIQL = options => graphiqlKoa(options);
-
