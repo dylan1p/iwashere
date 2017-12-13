@@ -15,6 +15,9 @@ const schema = makeExecutableSchema({
 	resolvers
 })
 
+
+exports.schema = schema;
+
 exports.graphqlAPI = graphqlKoa(ctx => ({
 	schema,
 	context : {

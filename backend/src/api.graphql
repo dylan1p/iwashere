@@ -1,8 +1,13 @@
-type Query {
-  me: User
+type CheckPoint {
+  id: ID
+  title: String
 }
 
-type User {
-  id: ID
-  name: String
+type Query {
+  listCheckPoints: [ CheckPoint]
 }
+
+type Subscription {
+  checkpoints: CheckPoint
+}
+
